@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu Proyecto</title>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+  <h1>Listado de Empresas</h1>
+  <label for="seleccionarEmpresa">Seleccionar Empresa:</label>
+  <select id="seleccionarEmpresa" name="seleccionarEmpresa">
+    <% empresas.forEach(empresa => { %>
+      <option value="<%= empresa.nombre %>"><%= empresa.nombre %></option>
+    <% }); %>
+  </select>
+
+  <!-- Otro contenido si es necesario -->
+
+  <script src="/script.js"></script>
+</body>
+</html>
