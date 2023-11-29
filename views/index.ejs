@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tu Proyecto</title>
-  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <link rel="stylesheet" type="text/css" href="../public/styles.css">
 </head>
 <body>
   <h1>Listado de Empresas</h1>
@@ -15,7 +15,18 @@
     <% }); %>
   </select>
 
-  <!-- Otro contenido si es necesario -->
+  <h1>Listado de Estudiantes</h1>
+  <label for="seleccionarEstudiante">Seleccionar Estudiante:</label>
+  <select id="seleccionarEstudiante" name="seleccionarEstudiante">
+    <% estudiantes.forEach(estudiante => { %>
+      <option value="<%= estudiante.nombre %>"><%= estudiante.nombre %></option>
+    <% }); %>
+  </select>
+
+  <!-- Formulario para guardar transacción -->
+  <form id="formularioTransaccion" action="/guardarTransaccion" method="post">
+    <button type="submit">Guardar Transacción</button>
+  </form>
 
   <script src="/script.js"></script>
 </body>

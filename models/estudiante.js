@@ -20,6 +20,7 @@ const estudianteSchema = new mongoose.Schema({
   // Otros campos del estudiante
 });
 
-const Estudiante = mongoose.model('Estudiante', estudianteSchema);
+// Si tu colección en MongoDB se llama 'estudiante' (en minúsculas)
+const Estudiante = mongoose.model('estudiante', estudianteSchema, 'estudiante');
 
 module.exports = Estudiante;
