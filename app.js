@@ -42,23 +42,25 @@ app.get('/', async (req, res) => {
 });
 
 // Ruta para guardar transacción
+// Ruta para guardar transacción
 app.post('/guardarTransaccion', async (req, res) => {
-  try {
-    const { empresaSeleccionada, estudianteSeleccionado } = req.body;
-
-    const transaccion = new Transaccion({
-      empresaSeleccionada,
-      estudianteSeleccionado,
-    });
-
-    await transaccion.save();
-
-    res.status(200).send({ mensaje: 'Transacción guardada exitosamente.' });
-  } catch (error) {
-    console.error('Error al guardar transacción:', error);
-    res.status(500).send({ mensaje: 'Error al guardar transacción.', error: error.message });
-  }
-});
+    try {
+      const { empresaSeleccionada, estudianteSeleccionado } = req.body;
+  
+      const transaccion = new Transaccion({
+        empresaSeleccionada,
+        estudianteSeleccionado,
+      });
+  
+      await transaccion.save();
+  
+      res.status(200).send({ mensaje: 'Transacción guardada exitosamente.' });
+    } catch (error) {
+      console.error('Error al guardar transacción:', error);
+      res.status(500).send({ mensaje: 'Error al guardar transacción.', error: error.message });
+    }
+  });
+  
 
 app.listen(3000, () => {
   console.log('Servidor escuchando en http://localhost:3000');

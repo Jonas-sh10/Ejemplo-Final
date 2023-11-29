@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tu Proyecto</title>
-  <link rel="stylesheet" type="text/css" href="../public/styles.css">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 <body>
   <h1>Listado de Empresas</h1>
@@ -25,9 +25,28 @@
 
   <!-- Formulario para guardar transacción -->
   <form id="formularioTransaccion" action="/guardarTransaccion" method="post">
-    <button type="submit">Guardar Transacción</button>
+    <!-- Campos ocultos para la empresa y el estudiante seleccionados -->
+    <input type="hidden" id="empresaSeleccionada" name="empresaSeleccionada" value="">
+    <input type="hidden" id="estudianteSeleccionado" name="estudianteSeleccionado" value="">
+
+    <button type="button" onclick="guardarSeleccion()">Guardar Transacción</button>
   </form>
 
   <script src="/script.js"></script>
+
+  <script>
+    // Función para guardar la selección antes de enviar el formulario
+    function guardarSeleccion() {
+      const empresaSeleccionada = document.getElementById('seleccionarEmpresa').value;
+      const estudianteSeleccionado = document.getElementById('seleccionarEstudiante').value;
+
+      // Asignar valores a los campos ocultos
+      document.getElementById('empresaSeleccionada').value = empresaSeleccionada;
+      document.getElementById('estudianteSeleccionado').value = estudianteSeleccionado;
+
+      // Enviar el formulario
+      document.getElementById('formularioTransaccion').submit();
+    }
+  </script>
 </body>
 </html>
